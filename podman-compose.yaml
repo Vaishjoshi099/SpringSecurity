@@ -4,7 +4,7 @@ services:
   mysql:
     image: mysql:8.0
     environment:
-      MYSQL_DATABASE: "userdetails"
+      MYSQL_DATABASE: "user_db"
       MYSQL_ROOT_PASSWORD: "Vaish@099"
     ports:
       - "3306:3306"  # Expose MySQL port
