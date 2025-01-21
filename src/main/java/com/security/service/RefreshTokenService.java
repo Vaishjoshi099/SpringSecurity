@@ -53,5 +53,4 @@ public class RefreshTokenService {
             refreshTokenRepo.save(refreshToken);  // Save the change
         }
     }
-
 }

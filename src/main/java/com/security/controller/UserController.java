@@ -88,17 +88,21 @@ public class UserController {
 	public ResponseEntity<String> logout() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String username = authentication.getName();
-		String refreshToken = userService.getRefreshTokenForUser(username); // Implement this method to retrieve the user's token
+		String refreshToken = userService.getRefreshTokenForUser(username);
 
 		if (refreshToken != null) {
 			try {
 				refreshTokenService.logout(refreshToken);
+				// Explicit success response with content
 				return ResponseEntity.ok("Successfully logged out");
 			} catch (RuntimeException e) {
-				return ResponseEntity.status(400).body(e.getMessage());
+				// Explicit error response with content
+				return ResponseEntity.status(400).body("Logout failed: " + e.getMessage());
 			}
 		} else {
+			// Explicit response when no active session is found
 			return ResponseEntity.status(400).body("No active session found for the user.");
 		}
 	}
+
 }
