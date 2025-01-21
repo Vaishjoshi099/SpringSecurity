@@ -101,9 +101,4 @@ public class UserController {
 			return ResponseEntity.status(400).body("No active session found for the user.");
 		}
 	}
-
-
-	
-	
-
 }
