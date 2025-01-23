@@ -32,7 +32,7 @@ public class SecurityConfig {
 		
 		http.csrf(customize ->customize.disable());
 		http.authorizeHttpRequests(request -> request
-				.requestMatchers("/register","/login","/refreshToken").permitAll()
+				.requestMatchers("/register","/login","/refreshToken","/logout").permitAll()
 				.anyRequest().authenticated());
 		//http.formLogin(Customizer.withDefaults()); //for enabling the login form on UI
 		http.httpBasic(Customizer.withDefaults()); //for enabling the POSTMAN api
